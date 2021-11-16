@@ -19,7 +19,7 @@ public class Empleado implements Serializable{
     private float sueldo;
     private float sueldoMax;
     private Fecha fechaAlta;
-    
+    private String paJavi;
     
     public Empleado(int id,String nombre, float salario,float salarioMax,int anio, int mes, int dia){
         this.nombre=nombre;
