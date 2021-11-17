@@ -200,8 +200,8 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         Object ob=new Object();
         
         
-        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText())) && 
-                Analista.comprobarDni(DniField.getText()) && 
+        if(((Empleado)ob).comprobarSueldo(Float.parseFloat(sueldoField.getText())) && 
+                ((Analista)ob).comprobarDni(DniField.getText()) && 
                 Analista.comprobarEdad(Integer.parseInt(EdadField.getText())) ){
             
             MensajeError.setVisible(false);
