@@ -5,6 +5,10 @@
  */
 package Modelo;
 import Controlador.*;
+import static Controlador.IFecha.AÑO;
+import static Controlador.IFecha.DIA_DEL_MES;
+import static Controlador.IFecha.MES_DEL_AÑO;
+import java.util.GregorianCalendar;
 /**
  *
  * @author Rubén Martín
@@ -55,18 +59,22 @@ public class Programador extends Empleado implements IFecha{
     }
     
     @Override
-    public int dia() {
-        return IFecha.DIA_DEL_MES; 
-    }
-
+    public int dia()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(DIA_DEL_MES);
+  }
     @Override
-    public int mes() {
-        return IFecha.MES_DEL_AÑO;
-    }
-
+  public int mes()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(MES_DEL_AÑO)+1;
+  }
     @Override
-    public int año() {
-        return IFecha.AñO;
-    }
+  public int año()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(AÑO);
+  }
     
 }
