@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package Modelo;
-
+import Controlador.*;
 /**
  *
  * @author Rubén Martín
  */
-public class Programador extends Empleado{
+public class Programador extends Empleado implements IFecha{
     
     private float SueldoExtra;
     private int horasExtra;
@@ -52,6 +52,21 @@ public class Programador extends Empleado{
      */
     public void setHorasExtra(int horasExtra) {
         this.horasExtra = horasExtra;
+    }
+    
+    @Override
+    public int dia() {
+        return IFecha.DIA_DEL_MES; 
+    }
+
+    @Override
+    public int mes() {
+        return IFecha.MES_DEL_AÑO;
+    }
+
+    @Override
+    public int año() {
+        return IFecha.AñO;
     }
     
 }

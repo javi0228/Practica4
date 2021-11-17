@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package Modelo;
-
+import Controlador.*;
 /**
  *
  * @author Rubén Martín
  */
-public class Analista extends Empleado{
+public class Analista extends Empleado implements IFecha{
     
     private float plus;
     private String dni;
@@ -42,27 +42,42 @@ public class Analista extends Empleado{
         return dni;
     }
     
-    public static boolean comprobarNif(String dni){
+    public static boolean comprobarDni(String dni){
         
-        int numeros=0, letras=0;
+        int contChar=0,contNum=0;
         
-        if(dni.length()!=9){
+        if(dni.length()!=9)
             return false;
-        }
-        for(int i=0;i<dni.length();i++){
-            if(dni.charAt(i)>'a' || dni.charAt(i)<'z'){
-                letras++;
-            } else {
-                numeros++;
-            }
-                
+        
+        
+        for (int i = 0; i < dni.length(); i++) {
+            
+            if(dni.charAt(i)>='0' && dni.charAt(i)<='9')
+                contNum++;
+            
+            if((dni.charAt(i)>='a' && dni.charAt(i)<='z')||(dni.charAt(i)>='A' && dni.charAt(i)<='Z'))
+                contChar++;
+            
         }
         
-        if(dni.charAt(8)>'a' || dni.charAt(8)<'z'){
-           return true;
-        } else {
+        if((contChar==1 && contNum==8) && (dni.charAt(8)>='a' && dni.charAt(8)<='z')||(dni.charAt(8)>='A' && dni.charAt(8)<='Z'))
+            return true;
+        else
             return false;
-        }
-       
+    }
+
+    @Override
+    public int dia() {
+        return IFecha.DIA_DEL_MES; 
+    }
+
+    @Override
+    public int mes() {
+        return IFecha.MES_DEL_AÑO;
+    }
+
+    @Override
+    public int año() {
+        return IFecha.AñO;
     }
 }
