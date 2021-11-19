@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.*;
+import javax.swing.JPanel;
 
 public class Principal extends javax.swing.JFrame {
     
@@ -161,9 +162,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void AcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcercaDeActionPerformed
         // TODO add your handling code here:
-        
-        this.setContentPane(panelAyuda);
-        pack();
+       
     }//GEN-LAST:event_AcercaDeActionPerformed
 
     private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
@@ -199,35 +198,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void ListarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarFechaActionPerformed
         // TODO add your handling code here:
-        if (listado.getInicio()!=null) {
-            
-            this.setContentPane(panelListarFecha);
-            panelListarFecha.listado = getLista();
-            panelListarFecha.esconderCampos(false);
-            
-            pack();
-        }else{
-            labelNoDatos.setVisible(true);
-        }
+       
     }//GEN-LAST:event_ListarFechaActionPerformed
 
     private void ListarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarPuestoActionPerformed
         // TODO add your handling code here:
         
-        if (listado.getInicio()!=null) {
-            this.setContentPane(panelListarPuesto);
-            panelListarPuesto.listado = getLista();
-            panelListarPuesto.apagarBotones();
-            
-            pack();
-        }else{
-            labelNoDatos.setVisible(true);
-        }
-            
+        
     }//GEN-LAST:event_ListarPuestoActionPerformed
      
      private void verLista() {
-        Nodo aux=panelListarFecha.listado.getInicio();
+        Nodo aux=panelAltasAnalista.listado.getInicio();
            
            while(aux!=null){
                System.out.println(aux.getDato());
@@ -277,7 +258,9 @@ public class Principal extends javax.swing.JFrame {
 //        pack();
 //    }
 
-   
+    private final PanelAltasProg panelAltasProg= new PanelAltasProg(listado);
+    private final PanelListar panelListar= new PanelListar();
+    private final PanelAltasAnalista panelAltasAnalista= new PanelAltasAnalista();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AcercaDe;
     private javax.swing.JMenuItem AltaAnalista;

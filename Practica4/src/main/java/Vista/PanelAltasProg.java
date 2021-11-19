@@ -164,19 +164,19 @@ public class PanelAltasProg extends javax.swing.JPanel {
         
         Object ob=new Object();
         
-        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-            
-            MensajeError.setVisible(false);
-            
-            ob=new Programador(nombreField.getText(),Float.parseFloat(sueldoField.getText()),
-                Integer.parseInt(fechaField1.getText()),Integer.parseInt(fechaField2.getText()),
-                Integer.parseInt(fechaField3.getText()),apellidosField.getText() ,casadoBox.getState());
-            
-            listado.insertar(ob);
-            
-        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+Empleado.getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
-        }
+//        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
+//            
+//            MensajeError.setVisible(false);
+//            
+//            ob=new Programador(nombreField.getText(),Float.parseFloat(sueldoField.getText()),
+//                Integer.parseInt(fechaField1.getText()),Integer.parseInt(fechaField2.getText()),
+//                Integer.parseInt(fechaField3.getText()),apellidosField.getText() ,casadoBox.getState());
+//            
+//            listado.insertar(ob);
+//            
+//        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
+//            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+Empleado.getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
+//        }
         setFieldNull();
     }//GEN-LAST:event_btAceptarActionPerformed
 
