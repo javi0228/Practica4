@@ -201,13 +201,14 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
 
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
         
-        Analista ob=null;
+        Analista ob=new Analista();
         
         String[] fecha=fechaField.getText().split("/");//[0]=dia [1]=mes [2]=año
         
-        if(ob.comprobarSueldo(Float.parseFloat(sueldoField.getText())) && 
+        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())) && 
                 Analista.comprobarDni(DniField.getText()) && 
-               Empleado.comprobarId(Integer.parseInt(PlusField.getText())) ){
+               Empleado.comprobarId(Integer.parseInt(IdField.getText())) &&
+                Analista.comprobarPlus(Float.parseFloat(PlusField.getText())) ){
             
             ob=new Analista(Integer.parseInt(IdField.getText()),nombreField.getText(),Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())
                     ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Float.parseFloat(PlusField.getText()),DniField.getText());
@@ -217,10 +218,12 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         }else if(!Analista.comprobarDni(DniField.getText())){
             
             setMensajeError("Dni incorrecto, inténtelo de nuevo.");
-        }else if(!ob.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+ob.getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
-        }else if(!ob.comprobarPlus(Float.parseFloat(PlusField.getText())))
+        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText()))){
+            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+((Analista)ob).getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
+        }else if(!Analista.comprobarPlus(Float.parseFloat(PlusField.getText())))
             setMensajeError("Plus incorrecto, es menor de 0% o supera el 100%, inténtelo de nuevo");
+        else if(!Empleado.comprobarId(Integer.parseInt(IdField.getText())))
+            setMensajeError("Id incorrecto, es menor de 0 o supera el 100, inténtelo de nuevo");
         
         setFieldNull();
         

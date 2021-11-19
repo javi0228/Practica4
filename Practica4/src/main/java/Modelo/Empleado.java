@@ -35,18 +35,22 @@ public class Empleado implements Serializable{
         this.fechaAlta=null;
     }
     
+    public Empleado(){
+        
+    }
+    
     public Empleado(int id, float salario){
         this.id=id;
         this.sueldo=salario;
         this.fechaAlta=null;
     }
     
-    public boolean comprobarSueldo(float sueldo){
-        return (sueldo <= sueldoMax && sueldo>1000);
+    public static boolean comprobarSueldo(float sueldo,float sueldoMax){
+        return (sueldo <= sueldoMax || sueldo>1000);
     }
     
     public static boolean comprobarId(int id){
-        return id<100;
+        return (id<=100 && id>0);
     }
 
     /**

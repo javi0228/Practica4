@@ -4,6 +4,7 @@ package Controlador;
 /**
  *
  * @author Javir
+ * @param <E>
  */
 public class Lista<E> {
     

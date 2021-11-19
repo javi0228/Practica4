@@ -29,6 +29,10 @@ public class Analista extends Empleado implements IFecha{
         this.dni=null;
     }
     
+    public Analista(){
+        
+    }
+    
     public void setPlus(float plus){
         this.plus=plus;
     }
@@ -63,14 +67,11 @@ public class Analista extends Empleado implements IFecha{
             
         }
         
-        if((contChar==1 && contNum==8) && (dni.charAt(8)>='a' && dni.charAt(8)<='z')||(dni.charAt(8)>='A' && dni.charAt(8)<='Z'))
-            return true;
-        else
-            return false;
+        return (contChar==1 && contNum==8) && (dni.charAt(8)>='a' && dni.charAt(8)<='z')||(dni.charAt(8)>='A' && dni.charAt(8)<='Z');
     }
     
     
-    public boolean comprobarPlus(float plus){
+    public static boolean comprobarPlus(float plus){
         return (plus<=100 && plus>0);
     }
     

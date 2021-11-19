@@ -2,11 +2,12 @@
 package Vista;
 
 import Controlador.*;
+import Modelo.Empleado;
 import javax.swing.JPanel;
 
 public class Principal extends javax.swing.JFrame {
     
-    private static Lista listado=new Lista();
+    private static Lista listado=new <Empleado>Lista();
     
     public Principal() {
         
