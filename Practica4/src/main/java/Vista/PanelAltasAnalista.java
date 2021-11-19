@@ -209,8 +209,6 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
                 Analista.comprobarDni(DniField.getText()) && 
                Empleado.comprobarId(Integer.parseInt(PlusField.getText())) ){
             
-            
-            
             ob=new Analista(Integer.parseInt(IdField.getText()),nombreField.getText(),Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())
                     ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Float.parseFloat(PlusField.getText()),DniField.getText());
             
