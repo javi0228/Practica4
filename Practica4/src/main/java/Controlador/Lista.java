@@ -27,7 +27,7 @@ public class Lista<E> {
     public void mostrarLista(){
         Nodo<E> aux = this.inicio;
         while(aux != null){
-            System.out.println(aux.getPrincipal().toString());
+            System.out.println(aux.getDato().toString());
             aux=aux.getSiguiente();
         }
     }

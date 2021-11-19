@@ -2,18 +2,10 @@
 package Controlador;
 
 public class Nodo<E> {
-    
-    private Object dato;
     private Nodo<E> sig;
     private E principal;
-    
-   public Nodo(Object dato){
-        this.dato=dato;
-        this.sig=null;
-    }
    
-   public Nodo(Object dato, E p){
-        this.dato=dato;
+   public Nodo(E p){
         this.sig=null;
         this.principal=p;
     }
@@ -23,16 +15,12 @@ public class Nodo<E> {
     }
     
     
-   public Object getDato(){
-        return dato;
+   public E getDato(){
+        return principal;
     }
     
     public void setSig(Nodo<E> sig){
         this.sig=sig;   
-    }
-    
-    public E getPrincipal(){
-        return principal;
     }
     
     public void setPrincipal(E p){
