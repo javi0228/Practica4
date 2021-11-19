@@ -104,7 +104,6 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
 
         fechaLabel.setText("Fecha de contratación (dd/mm/aaaa): ");
 
-        fechaField.setText("dd/mm/aaaa");
         fechaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaFieldActionPerformed(evt);

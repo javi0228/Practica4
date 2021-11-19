@@ -76,5 +76,19 @@ public class Programador extends Empleado implements IFecha{
     GregorianCalendar fechaActual = new GregorianCalendar();
     return fechaActual.get(AÑO);
   }
+  
+  
+  
+  public boolean comprobarMes(){
+        
+        return super.getFechaAlta().getMes()==mes();
+    }
+  
+  public boolean comprobarAnio(){
+        
+        return super.getFechaAlta().getAnio()==año();
+    }
+  
+  
     
 }

@@ -41,7 +41,7 @@ public class Empleado implements Serializable{
         this.fechaAlta=null;
     }
     
-    public boolean comprobarSueldo(float sueldo){
+    public boolean comprobarSueldo(float sueldo, float sueldoMax){
         return (sueldo <= sueldoMax && sueldo>1000);
     }
     
