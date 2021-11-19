@@ -44,6 +44,10 @@ public class Empleado implements Serializable{
     public boolean comprobarSueldo(float sueldo){
         return (sueldo <= sueldoMax && sueldo>1000);
     }
+    
+    public static boolean comprobarId(int id){
+        return id<100;
+    }
 
     /**
      * @return the id

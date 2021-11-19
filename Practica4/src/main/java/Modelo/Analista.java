@@ -6,10 +6,12 @@
 package Modelo;
 import Controlador.*;
 import java.util.GregorianCalendar;
+
 /**
  *
  * @author Rubén Martín
  */
+
 public class Analista extends Empleado implements IFecha{
     
     private float plus;
@@ -66,7 +68,13 @@ public class Analista extends Empleado implements IFecha{
         else
             return false;
     }
-
+    
+    
+    public boolean comprobarPlus(float plus){
+        return (plus<=100 && plus>0);
+    }
+    
+    
     @Override
     public int dia()
   {
