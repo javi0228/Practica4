@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.*;
 import Modelo.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,13 +19,12 @@ public class PanelAltasProg extends javax.swing.JPanel {
    
     public PanelAltasProg(Lista listado) {
         initComponents();
-        casadoBox.setLabel("Casado");
-        MensajeError.setVisible(false);
+       
         
     }
     
     public void pedirFoco(){
-        nombreField.requestFocus();
+        idField.requestFocus();
     }
 
     /**
@@ -41,15 +41,16 @@ public class PanelAltasProg extends javax.swing.JPanel {
         sueldoLabel = new javax.swing.JLabel();
         sueldoField = new javax.swing.JTextField();
         fechaLabel = new javax.swing.JLabel();
-        fechaField1 = new javax.swing.JTextField();
         btAceptar = new javax.swing.JButton();
-        apellidosField = new javax.swing.JTextField();
-        apellidoLabel = new javax.swing.JLabel();
-        casadoLabel = new javax.swing.JLabel();
-        casadoBox = new java.awt.Checkbox();
-        fechaField2 = new javax.swing.JTextField();
-        fechaField3 = new javax.swing.JTextField();
-        MensajeError = new javax.swing.JOptionPane();
+        sueldoMaxField = new javax.swing.JTextField();
+        sueldoMaxLabel = new javax.swing.JLabel();
+        horasExtrasLabel = new javax.swing.JLabel();
+        fechaField = new javax.swing.JTextField();
+        horasExtrasField = new javax.swing.JTextField();
+        idLabel = new javax.swing.JLabel();
+        idField = new javax.swing.JTextField();
+        sueldoExtraLabel = new javax.swing.JLabel();
+        sueldoExtraField = new javax.swing.JTextField();
 
         nombreLabel.setText("Nombre: ");
 
@@ -77,125 +78,151 @@ public class PanelAltasProg extends javax.swing.JPanel {
             }
         });
 
-        apellidosField.addActionListener(new java.awt.event.ActionListener() {
+        sueldoMaxField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apellidosFieldActionPerformed(evt);
+                sueldoMaxFieldActionPerformed(evt);
             }
         });
 
-        apellidoLabel.setText("Apellidos: ");
+        sueldoMaxLabel.setText("Sueldo Máximo:");
 
-        casadoLabel.setText("Casado: ");
+        horasExtrasLabel.setText("Horas Extras:");
 
-        casadoBox.setLabel("checkbox1");
+        horasExtrasField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horasExtrasFieldActionPerformed(evt);
+            }
+        });
+
+        idLabel.setText("Id:");
+
+        idField.setToolTipText("");
+        idField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFieldActionPerformed(evt);
+            }
+        });
+
+        sueldoExtraLabel.setText("Sueldo Extra:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaLabel)
-                            .addComponent(nombreLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(apellidoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(sueldoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(casadoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(292, 292, 292)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(casadoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(fechaField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(fechaField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(fechaField3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                                    .addComponent(apellidosField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sueldoField, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btAceptar)
-                        .addGap(274, 274, 274))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btAceptar)
+                .addGap(287, 287, 287))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nombreLabel)
+                    .addComponent(horasExtrasLabel)
+                    .addComponent(idLabel)
+                    .addComponent(sueldoLabel)
+                    .addComponent(fechaLabel)
+                    .addComponent(sueldoMaxLabel)
+                    .addComponent(sueldoExtraLabel))
+                .addGap(292, 292, 292)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(sueldoMaxField)
+                    .addComponent(fechaField)
+                    .addComponent(sueldoField)
+                    .addComponent(nombreField)
+                    .addComponent(idField)
+                    .addComponent(horasExtrasField)
+                    .addComponent(sueldoExtraField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreLabel)
                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apellidoLabel)
-                    .addComponent(apellidosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sueldoLabel)
                     .addComponent(sueldoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sueldoMaxLabel)
+                    .addComponent(sueldoMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horasExtrasLabel)
+                    .addComponent(horasExtrasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sueldoExtraLabel)
+                    .addComponent(sueldoExtraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaLabel)
-                    .addComponent(fechaField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(casadoBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(casadoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(37, 37, 37)
+                    .addComponent(fechaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addComponent(btAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(MensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(72, 72, 72))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
-        // TODO add your handling code here:
         
-        Object ob=new Object();
+        Programador ob=new Programador();
         
-//        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-//            
-//            MensajeError.setVisible(false);
-//            
-//            ob=new Programador(nombreField.getText(),Float.parseFloat(sueldoField.getText()),
-//                Integer.parseInt(fechaField1.getText()),Integer.parseInt(fechaField2.getText()),
-//                Integer.parseInt(fechaField3.getText()),apellidosField.getText() ,casadoBox.getState());
-//            
-//            listado.insertar(ob);
-//            
-//        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-//            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+Empleado.getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
-//        }
+        String[] fecha=fechaField.getText().split("/");//[0]=dia [1]=mes [2]=año
+        
+        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())) && 
+                Programador.comprobarHorasExtras(Integer.parseInt(horasExtrasField.getText())) && 
+               Empleado.comprobarId(Integer.parseInt(idField.getText())) &&
+                Programador.comprobarSueldoExtra(Float.parseFloat(sueldoField.getText()),
+                        Float.parseFloat(sueldoMaxField.getText()),Float.parseFloat(sueldoExtraField.getText())) ){
+            
+            ob=new Programador(Integer.parseInt(idField.getText()),nombreField.getText(),Float.parseFloat(sueldoField.getText()),
+                    Float.parseFloat(sueldoMaxField.getText())
+                    ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[1]),Integer.parseInt( fecha[0]),
+                    Float.parseFloat(sueldoExtraField.getText()),Integer.parseInt(horasExtrasField.getText()));
+            
+            listado.insertar(ob);
+            
+        }else if(!Programador.comprobarHorasExtras(Integer.parseInt(horasExtrasField.getText()))){
+            setMensajeError("Horas extras incorrectas\nNo puede ser menor de 0, inténtelo de nuevo.");
+            
+        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText()))){
+            setMensajeError("Sueldo incorrecto\nSupera el sueldo máximo establecido ("+((Programador)ob).getSueldoMax()+") "
+                    + "o es inferior al mínimo (1000), inténtelo de nuevo.");
+            
+        }else if(!Programador.comprobarSueldoExtra(Float.parseFloat(sueldoField.getText()),
+                        Float.parseFloat(sueldoMaxField.getText()),Float.parseFloat(sueldoExtraField.getText())))
+            setMensajeError("Sueldo extra incorrecto\nEs menor de 0 o supera el sueldo máximo, inténtelo de nuevo");
+        
+        else if(!Empleado.comprobarId(Integer.parseInt(idField.getText())))
+            setMensajeError("Id incorrecto\nEs menor de 0 o supera el 100, inténtelo de nuevo");
+        
         setFieldNull();
     }//GEN-LAST:event_btAceptarActionPerformed
 
      private void setMensajeError(String mensaje){
-        MensajeError.setMessage(mensaje);
-        MensajeError.setVisible(true);
+        
+         JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.ERROR_MESSAGE);
+       
     }
     
     private void setFieldNull(){
        
         nombreField.setText(null);
-        apellidosField.setText(null);
-        casadoBox.setState(false);
-        fechaField1.setText(null);
-        fechaField1.setText(null);
-        fechaField2.setText(null);
-        fechaField3.setText(null);
+        sueldoMaxField.setText(null);
+        fechaField.setText(null);
+        idField.setText(null);
+        sueldoExtraField.setText(null);
+        horasExtrasField.setText(null);
         sueldoField.setText(null);
-        nombreField.requestFocus();
+        idField.requestFocus();
     }
     
     private void sueldoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sueldoFieldActionPerformed
@@ -207,25 +234,34 @@ public class PanelAltasProg extends javax.swing.JPanel {
         
     }//GEN-LAST:event_nombreFieldActionPerformed
 
-    private void apellidosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidosFieldActionPerformed
+    private void sueldoMaxFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sueldoMaxFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_apellidosFieldActionPerformed
+    }//GEN-LAST:event_sueldoMaxFieldActionPerformed
+
+    private void horasExtrasFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horasExtrasFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horasExtrasFieldActionPerformed
+
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JOptionPane MensajeError;
-    private javax.swing.JLabel apellidoLabel;
-    private javax.swing.JTextField apellidosField;
     private javax.swing.JButton btAceptar;
-    private java.awt.Checkbox casadoBox;
-    private javax.swing.JLabel casadoLabel;
-    private javax.swing.JTextField fechaField1;
-    private javax.swing.JTextField fechaField2;
-    private javax.swing.JTextField fechaField3;
+    private javax.swing.JTextField fechaField;
     private javax.swing.JLabel fechaLabel;
+    private javax.swing.JTextField horasExtrasField;
+    private javax.swing.JLabel horasExtrasLabel;
+    private javax.swing.JTextField idField;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JTextField nombreField;
     private javax.swing.JLabel nombreLabel;
+    private javax.swing.JTextField sueldoExtraField;
+    private javax.swing.JLabel sueldoExtraLabel;
     private javax.swing.JTextField sueldoField;
     private javax.swing.JLabel sueldoLabel;
+    private javax.swing.JTextField sueldoMaxField;
+    private javax.swing.JLabel sueldoMaxLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,6 +30,10 @@ public class Programador extends Empleado implements IFecha{
         this.horasExtra=0;
     }
 
+    public Programador() {
+        
+    }
+
     /**
      * @return the SueldoExtra
      */
@@ -57,6 +61,21 @@ public class Programador extends Empleado implements IFecha{
     public void setHorasExtra(int horasExtra) {
         this.horasExtra = horasExtra;
     }
+    
+    public static boolean comprobarHorasExtras(int horas){
+        return horas>0;
+    }
+    
+    public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float sueldoExtra){
+        return sueldoExtra>0&&(sueldoExtra+sueldo)<=sueldoMax;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\n Horas extras: "+getHorasExtra()+"\n Sueldo extra: "+getSueldoExtra(); 
+    }
+    
+    
     
     @Override
     public int dia()

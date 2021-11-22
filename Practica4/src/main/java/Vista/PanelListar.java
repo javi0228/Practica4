@@ -16,10 +16,12 @@ public class PanelListar extends javax.swing.JPanel {
         fieldSueldo.setEditable(false);
         fieldFecha.setEditable(false);
         fieldDni.setEditable(false);
-        fieldEdad.setEditable(false);
-        fieldApellidos.setEditable(false);
-        checkCasado.setEnabled(false);
-        checkCasado.setLabel("Casado");
+        plusField.setEditable(false);
+        idField.setEditable(false);
+        sueldoMaxField.setEditable(false);
+        horasExtrasField.setEditable(false);
+        sueldoExtraField.setEditable(false);
+      
 
     }
 
@@ -49,14 +51,18 @@ public class PanelListar extends javax.swing.JPanel {
         labelFecha = new javax.swing.JLabel();
         btRetroceder = new javax.swing.JButton();
         btSiguiente = new javax.swing.JButton();
-        labelEdad = new javax.swing.JLabel();
-        fieldEdad = new javax.swing.JTextField();
+        plusLabel = new javax.swing.JLabel();
+        plusField = new javax.swing.JTextField();
         fieldDni = new javax.swing.JTextField();
         labelDni = new javax.swing.JLabel();
-        labelCasado = new javax.swing.JLabel();
-        labelApellidos = new javax.swing.JLabel();
-        fieldApellidos = new javax.swing.JTextField();
-        checkCasado = new java.awt.Checkbox();
+        horasExtrasField = new javax.swing.JTextField();
+        horasExtrasLabel = new javax.swing.JLabel();
+        sueldoMaxField = new javax.swing.JTextField();
+        sueldoMaxLabel = new javax.swing.JLabel();
+        idField = new javax.swing.JTextField();
+        idLabel = new javax.swing.JLabel();
+        sueldoExtraField = new javax.swing.JTextField();
+        sueldoExtraLabel = new javax.swing.JLabel();
 
         fieldSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,15 +90,17 @@ public class PanelListar extends javax.swing.JPanel {
             }
         });
 
-        labelEdad.setText("Edad: ");
+        plusLabel.setText("Plus:");
 
         labelDni.setText("DNI: ");
 
-        labelCasado.setText("Casado: ");
+        horasExtrasLabel.setText("Horas extras:");
 
-        labelApellidos.setText("Apellidos: ");
+        sueldoMaxLabel.setText("Sueldo máximo:");
 
-        checkCasado.setLabel("checkbox1");
+        idLabel.setText("Id:");
+
+        sueldoExtraLabel.setText("Sueldo extra:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,34 +109,45 @@ public class PanelListar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addComponent(btRetroceder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                 .addComponent(btSiguiente)
                 .addGap(157, 157, 157))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelNombre)
-                    .addComponent(labelSueldo)
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelFecha)
-                    .addComponent(labelEdad)
-                    .addComponent(labelDni)
-                    .addComponent(labelCasado)
-                    .addComponent(labelApellidos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(plusLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelDni, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sueldoMaxLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelSueldo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(horasExtrasLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sueldoExtraLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(325, 325, 325)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(fieldApellidos)
-                    .addComponent(fieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(fieldSueldo)
-                    .addComponent(fieldFecha)
-                    .addComponent(fieldEdad)
                     .addComponent(fieldDni)
-                    .addComponent(checkCasado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                    .addComponent(plusField)
+                    .addComponent(fieldFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(fieldNombre)
+                    .addComponent(fieldSueldo)
+                    .addComponent(horasExtrasField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(sueldoMaxField)
+                    .addComponent(idField)
+                    .addComponent(sueldoExtraField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNombre))
@@ -138,27 +157,29 @@ public class PanelListar extends javax.swing.JPanel {
                     .addComponent(labelSueldo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelFecha))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEdad))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelDni))
+                    .addComponent(sueldoMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sueldoMaxLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelFecha)
+                    .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(plusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plusLabel))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelCasado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(checkCasado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(107, 107, 107)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDni))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horasExtrasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horasExtrasLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sueldoExtraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sueldoExtraLabel))
+                .addGap(191, 191, 191)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRetroceder)
                     .addComponent(btSiguiente))
@@ -229,32 +250,53 @@ public class PanelListar extends javax.swing.JPanel {
 
     void setCamposAnalista(Object ob){
         
+        //inicializo los campos de analista
+        idField.setText(""+((Empleado)ob).getId());
+        sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
+        fieldFecha.setText(""+((Empleado)ob).getFechaAlta());
         fieldNombre.setText(((Analista) ob).getNombre());
         fieldSueldo.setText("" + ((Analista) ob).getSueldo());
-        checkCasado.setVisible(false);
-        labelCasado.setVisible(false);
-        fieldApellidos.setVisible(false);
-        labelApellidos.setVisible(false);
+        fieldDni.setText(((Analista)ob).getDNI());
+        plusField.setText(""+((Analista)ob).getPlus()+"%");
+        
+        //oculto campos programador
+        horasExtrasField.setVisible(false);
+        horasExtrasLabel.setVisible(false);
+        sueldoExtraField.setVisible(false);
+        sueldoExtraLabel.setVisible(false);
+        
+        //muestro campos analista
         fieldDni.setVisible(true);
         labelDni.setVisible(true);
-        fieldEdad.setVisible(true);                
-        labelEdad.setVisible(true);
+        plusField.setVisible(true);                
+        plusLabel.setVisible(true);
         
     }
     
    
     void setCamposProgramador (Object ob){
         
+        //inicializo los campos de programador
+        idField.setText(""+((Empleado)ob).getId());
+        sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
+        fieldFecha.setText(""+((Empleado)ob).getFechaAlta());
         fieldNombre.setText(((Programador) ob).getNombre());
-        fieldSueldo.setText("" + ((Programador) ob).getSueldo());
+        fieldSueldo.setText(""+((Programador) ob).getSueldo());
+        horasExtrasField.setText(""+((Programador)ob).getHorasExtra());
+        sueldoExtraField.setText(""+((Programador)ob).getSueldoExtra());
+        
+        //oculto campos analista
         fieldDni.setVisible(false);
-        fieldEdad.setVisible(false);
         labelDni.setVisible(false);
-        labelEdad.setVisible(false);
-        labelApellidos.setVisible(true);
-        fieldApellidos.setVisible(true);
-        checkCasado.setVisible(true);
-        labelCasado.setVisible(true);
+        plusField.setVisible(false);                
+        plusLabel.setVisible(false);
+        
+        //muestro campos programador        
+        horasExtrasField.setVisible(true);
+        horasExtrasLabel.setVisible(true);
+        sueldoExtraField.setVisible(true);
+        sueldoExtraLabel.setVisible(true);
+        
         
     }
     void inicializarCampos() {
@@ -280,19 +322,23 @@ public class PanelListar extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btRetroceder;
     private javax.swing.JButton btSiguiente;
-    private java.awt.Checkbox checkCasado;
-    private javax.swing.JTextField fieldApellidos;
     private javax.swing.JTextField fieldDni;
-    private javax.swing.JTextField fieldEdad;
     private javax.swing.JTextField fieldFecha;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JTextField fieldSueldo;
-    private javax.swing.JLabel labelApellidos;
-    private javax.swing.JLabel labelCasado;
+    private javax.swing.JTextField horasExtrasField;
+    private javax.swing.JLabel horasExtrasLabel;
+    private javax.swing.JTextField idField;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JLabel labelDni;
-    private javax.swing.JLabel labelEdad;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel labelSueldo;
+    private javax.swing.JTextField plusField;
+    private javax.swing.JLabel plusLabel;
+    private javax.swing.JTextField sueldoExtraField;
+    private javax.swing.JLabel sueldoExtraLabel;
+    private javax.swing.JTextField sueldoMaxField;
+    private javax.swing.JLabel sueldoMaxLabel;
     // End of variables declaration//GEN-END:variables
 }

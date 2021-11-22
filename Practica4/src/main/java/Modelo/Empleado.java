@@ -122,5 +122,13 @@ public class Empleado implements Serializable{
     public void setFechaAlta(Fecha fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
+
+    @Override
+    public String toString() {
+        return "Id: "+getId()+"\n Nombre: "+getNombre()+"\n Sueldo: "+getSueldo()+
+                "\n Sueldo Máximo: "+getSueldoMax()+"\n Fecha de alta: "+getFechaAlta();
+    }
+    
+    
     
 }

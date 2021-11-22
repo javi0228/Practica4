@@ -74,6 +74,13 @@ public class Analista extends Empleado implements IFecha{
     public static boolean comprobarPlus(float plus){
         return (plus<=100 && plus>0);
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\n Plus: "+getPlus()+"\n Dni: "+getDNI();
+    }
+    
+    
     
     
     @Override

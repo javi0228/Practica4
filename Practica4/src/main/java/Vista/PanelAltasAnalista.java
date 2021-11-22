@@ -24,7 +24,7 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
     }
     
     public void pedirFoco(){
-        nombreField.requestFocus();
+        IdField.requestFocus();
     }
     
     
@@ -104,7 +104,6 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
 
         fechaLabel.setText("Fecha de contratación (dd/mm/aaaa): ");
 
-        fechaField.setText("dd/mm/aaaa");
         fechaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaFieldActionPerformed(evt);
@@ -211,7 +210,7 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
                 Analista.comprobarPlus(Float.parseFloat(PlusField.getText())) ){
             
             ob=new Analista(Integer.parseInt(IdField.getText()),nombreField.getText(),Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())
-                    ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Integer.parseInt( fecha[2]),Float.parseFloat(PlusField.getText()),DniField.getText());
+                    ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[1]),Integer.parseInt( fecha[0]),Float.parseFloat(PlusField.getText()),DniField.getText());
             
             listado.insertar(ob);
             
@@ -237,11 +236,12 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         sueldoField.setText(null);
         sueldoMaxField.setText(null);
         fechaField.setText(null);
-        nombreField.requestFocus();
+        IdField.setText(null);
+        IdField.requestFocus();
     }
     
     private void setMensajeError(String mensaje){
-        JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.ERROR_MESSAGE);
     }
     
     private void nombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreFieldActionPerformed
