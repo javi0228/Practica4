@@ -35,28 +35,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarActionPerformed"/>
           </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="ListarItem">
+            <MenuItem class="javax.swing.JMenuItem" name="Listar1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver todos los empleados"/>
+                <Property name="text" type="java.lang.String" value="Ver todos los empleados 1 a 1"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarItemActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Listar1ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ListarFecha">
+            <MenuItem class="javax.swing.JMenuItem" name="ListarTodos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Filtrar por fecha"/>
+                <Property name="text" type="java.lang.String" value="Ver lista de empleados"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarFechaActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ListarPuesto">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Filtrar por puesto de empleado"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarPuestoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarTodosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
