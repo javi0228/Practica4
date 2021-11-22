@@ -38,49 +38,55 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="sueldoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="EdadLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="PlusLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="DniLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="fechaLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="nombreLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="sueldoMaxLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="IdLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="EdadField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="DniField" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="fechaField1" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fechaField2" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="fechaField3" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="PlusField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="DniField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="sueldoField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="nombreField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="sueldoMaxField" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <Component id="IdField" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="sueldoField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="nombreField" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fechaField" min="-2" pref="119" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="MensajeError" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="btAceptar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="btAceptar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="IdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nombreField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -92,8 +98,8 @@
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="EdadField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="EdadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PlusField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PlusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -102,16 +108,17 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fechaField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sueldoMaxField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sueldoMaxLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fechaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fechaField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fechaField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fechaField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="btAceptar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Component id="MensajeError" min="-2" pref="74" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace pref="138" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,14 +147,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sueldoFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="EdadLabel">
+    <Component class="javax.swing.JLabel" name="PlusLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edad: "/>
+        <Property name="text" type="java.lang.String" value="Plus:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="EdadField">
+    <Component class="javax.swing.JTextField" name="PlusField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EdadFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlusFieldActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btAceptar">
@@ -168,29 +175,37 @@
         <Property name="text" type="java.lang.String" value="DNI: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JOptionPane" name="MensajeError">
-      <Events>
-        <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="MensajeErrorComponentShown"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="fechaLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf3;n (dd/mm/aaaa): "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="fechaField3">
+    <Component class="javax.swing.JTextField" name="fechaField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaField3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="fechaField2">
+    <Component class="javax.swing.JLabel" name="sueldoMaxLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sueldo M&#xe1;ximo: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="sueldoMaxField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaField2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sueldoMaxFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="fechaField1">
+    <Component class="javax.swing.JLabel" name="IdLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="IdField">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdFieldActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

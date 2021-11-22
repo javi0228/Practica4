@@ -1,29 +1,30 @@
 
 package Controlador;
 
-public class Nodo {
-    
-    private Object dato;
-    private Nodo sig;
-    
-   public Nodo(Object dato){
-        this.dato=dato;
+public class Nodo<E> {
+    private Nodo<E> sig;
+    private E principal;
+   
+   public Nodo(E p){
         this.sig=null;
+        this.principal=p;
     }
     
-    public Nodo getSiguiente(){
+    public Nodo<E> getSiguiente(){
         return sig;
     }
     
     
-   public Object getDato(){
-        return dato;
+   public E getDato(){
+        return principal;
     }
     
-    public void setSig(Nodo sig){
-        this.sig=sig;
-        
-        
+    public void setSig(Nodo<E> sig){
+        this.sig=sig;   
+    }
+    
+    public void setPrincipal(E p){
+        this.principal = p;
     }
     
     

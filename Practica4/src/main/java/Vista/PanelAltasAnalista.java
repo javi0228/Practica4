@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.*;
 import Modelo.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,13 +20,11 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
     public PanelAltasAnalista() {
       
         initComponents();
-        //MensajeError.setName("ERROR DNI");
-        MensajeError.setVisible(false);
         
     }
     
     public void pedirFoco(){
-        nombreField.requestFocus();
+        IdField.requestFocus();
     }
     
     
@@ -45,16 +44,17 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         nombreField = new javax.swing.JTextField();
         sueldoLabel = new javax.swing.JLabel();
         sueldoField = new javax.swing.JTextField();
-        EdadLabel = new javax.swing.JLabel();
-        EdadField = new javax.swing.JTextField();
+        PlusLabel = new javax.swing.JLabel();
+        PlusField = new javax.swing.JTextField();
         btAceptar = new javax.swing.JButton();
         DniField = new javax.swing.JTextField();
         DniLabel = new javax.swing.JLabel();
-        MensajeError = new javax.swing.JOptionPane();
         fechaLabel = new javax.swing.JLabel();
-        fechaField3 = new javax.swing.JTextField();
-        fechaField2 = new javax.swing.JTextField();
-        fechaField1 = new javax.swing.JTextField();
+        fechaField = new javax.swing.JTextField();
+        sueldoMaxLabel = new javax.swing.JLabel();
+        sueldoMaxField = new javax.swing.JTextField();
+        IdLabel = new javax.swing.JLabel();
+        IdField = new javax.swing.JTextField();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -79,11 +79,11 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
             }
         });
 
-        EdadLabel.setText("Edad: ");
+        PlusLabel.setText("Plus:");
 
-        EdadField.addActionListener(new java.awt.event.ActionListener() {
+        PlusField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EdadFieldActionPerformed(evt);
+                PlusFieldActionPerformed(evt);
             }
         });
 
@@ -102,29 +102,28 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
 
         DniLabel.setText("DNI: ");
 
-        MensajeError.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                MensajeErrorComponentShown(evt);
-            }
-        });
-
         fechaLabel.setText("Fecha de contratación (dd/mm/aaaa): ");
 
-        fechaField3.addActionListener(new java.awt.event.ActionListener() {
+        fechaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaField3ActionPerformed(evt);
+                fechaFieldActionPerformed(evt);
             }
         });
 
-        fechaField2.addActionListener(new java.awt.event.ActionListener() {
+        sueldoMaxLabel.setText("Sueldo Máximo: ");
+
+        sueldoMaxField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaField2ActionPerformed(evt);
+                sueldoMaxFieldActionPerformed(evt);
             }
         });
 
-        fechaField1.addActionListener(new java.awt.event.ActionListener() {
+        IdLabel.setText("ID:");
+
+        IdField.setToolTipText("");
+        IdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaField1ActionPerformed(evt);
+                IdFieldActionPerformed(evt);
             }
         });
 
@@ -133,39 +132,43 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(sueldoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(EdadLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PlusLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(DniLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fechaLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nombreLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(266, 266, 266)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(EdadField)
-                            .addComponent(DniField)
+                            .addComponent(nombreLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sueldoMaxLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(IdLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(fechaField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(266, 266, 266)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(PlusField)
+                                    .addComponent(DniField)
+                                    .addComponent(sueldoField)
+                                    .addComponent(nombreField)
+                                    .addComponent(sueldoMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fechaField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fechaField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sueldoField)
-                            .addComponent(nombreField)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(MensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)))
-                .addGap(73, 73, 73))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(btAceptar)
-                .addGap(297, 297, 297))
+                                .addComponent(fechaField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btAceptar)
+                        .addGap(224, 224, 224)))
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdLabel))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombreLabel))
@@ -175,50 +178,51 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
                     .addComponent(DniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EdadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EdadLabel))
+                    .addComponent(PlusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PlusLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sueldoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sueldoMaxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sueldoMaxLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaLabel)
-                    .addComponent(fechaField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btAceptar)
-                .addGap(65, 65, 65)
-                .addComponent(MensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
         
-        Object ob=new Object();
+        Analista ob=new Analista();
         
+        String[] fecha=fechaField.getText().split("/");//[0]=dia [1]=mes [2]=año
         
-        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText())) && 
+        if(Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())) && 
                 Analista.comprobarDni(DniField.getText()) && 
-                Analista.comprobarEdad(Integer.parseInt(EdadField.getText())) ){
+               Empleado.comprobarId(Integer.parseInt(IdField.getText())) &&
+                Analista.comprobarPlus(Float.parseFloat(PlusField.getText())) ){
             
-            MensajeError.setVisible(false);
-            
-            ob=new Analista(nombreField.getText(),Float.parseFloat(sueldoField.getText()),Integer.parseInt(fechaField1.getText())
-                    ,Integer.parseInt(fechaField2.getText()),Integer.parseInt(fechaField3.getText())
-                    ,Integer.parseInt(EdadField.getText()),DniField.getText());
+            ob=new Analista(Integer.parseInt(IdField.getText()),nombreField.getText(),Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText())
+                    ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[1]),Integer.parseInt( fecha[0]),Float.parseFloat(PlusField.getText()),DniField.getText());
             
             listado.insertar(ob);
             
         }else if(!Analista.comprobarDni(DniField.getText())){
             
             setMensajeError("Dni incorrecto, inténtelo de nuevo.");
-        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()))){
-            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+Empleado.getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
-        }else if(!Analista.comprobarEdad(Integer.parseInt(EdadField.getText())))
-            setMensajeError("Edad incorrecta, es menor de edad o supera los 75 años, inténtelo de nuevo");
+        }else if(!Empleado.comprobarSueldo(Float.parseFloat(sueldoField.getText()),Float.parseFloat(sueldoMaxField.getText()))){
+            setMensajeError("Sueldo incorrecto, supera el sueldo máximo establecido ("+((Analista)ob).getSueldoMax()+") o es inferior al mínimo (1000), inténtelo de nuevo.");
+        }else if(!Analista.comprobarPlus(Float.parseFloat(PlusField.getText())))
+            setMensajeError("Plus incorrecto, es menor de 0% o supera el 100%, inténtelo de nuevo");
+        else if(!Empleado.comprobarId(Integer.parseInt(IdField.getText())))
+            setMensajeError("Id incorrecto, es menor de 0 o supera el 100, inténtelo de nuevo");
         
         setFieldNull();
         
@@ -227,18 +231,17 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
     private void setFieldNull(){
        
         nombreField.setText(null);
-        EdadField.setText(null);
+        PlusField.setText(null);
         DniField.setText(null);
         sueldoField.setText(null);
-        fechaField1.setText(null);
-        fechaField2.setText(null);
-        fechaField3.setText(null);
-        nombreField.requestFocus();
+        sueldoMaxField.setText(null);
+        fechaField.setText(null);
+        IdField.setText(null);
+        IdField.requestFocus();
     }
     
     private void setMensajeError(String mensaje){
-        MensajeError.setMessage(mensaje);
-        MensajeError.setVisible(true);
+        JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.ERROR_MESSAGE);
     }
     
     private void nombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreFieldActionPerformed
@@ -254,38 +257,36 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_sueldoFieldActionPerformed
 
-    private void MensajeErrorComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_MensajeErrorComponentShown
+    private void fechaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaFieldActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_MensajeErrorComponentShown
+        if(fechaField.isFocusOwner())
+            fechaField.setText(null);
+        
+    }//GEN-LAST:event_fechaFieldActionPerformed
 
-    private void fechaField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaField3ActionPerformed
+    private void PlusFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaField3ActionPerformed
+    }//GEN-LAST:event_PlusFieldActionPerformed
 
-    private void fechaField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaField2ActionPerformed
+    private void sueldoMaxFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sueldoMaxFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaField2ActionPerformed
+    }//GEN-LAST:event_sueldoMaxFieldActionPerformed
 
-    private void fechaField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaField1ActionPerformed
+    private void IdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaField1ActionPerformed
-
-    private void EdadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdadFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EdadFieldActionPerformed
+    }//GEN-LAST:event_IdFieldActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DniField;
     private javax.swing.JLabel DniLabel;
-    private javax.swing.JTextField EdadField;
-    private javax.swing.JLabel EdadLabel;
-    private javax.swing.JOptionPane MensajeError;
+    private javax.swing.JTextField IdField;
+    private javax.swing.JLabel IdLabel;
+    private javax.swing.JTextField PlusField;
+    private javax.swing.JLabel PlusLabel;
     private javax.swing.JButton btAceptar;
-    private javax.swing.JTextField fechaField1;
-    private javax.swing.JTextField fechaField2;
-    private javax.swing.JTextField fechaField3;
+    private javax.swing.JTextField fechaField;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -294,5 +295,7 @@ public class PanelAltasAnalista extends javax.swing.JPanel {
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField sueldoField;
     private javax.swing.JLabel sueldoLabel;
+    private javax.swing.JTextField sueldoMaxField;
+    private javax.swing.JLabel sueldoMaxLabel;
     // End of variables declaration//GEN-END:variables
 }

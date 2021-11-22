@@ -4,11 +4,12 @@ package Controlador;
 /**
  *
  * @author Javir
+ * @param <E>
  */
-public class Lista {
+public class Lista<E> {
     
-    private Nodo inicio;
-    private Nodo actual;
+    private Nodo<E> inicio;
+    private Nodo<E> actual;
 
     public Lista() {
         inicio=null;
@@ -17,11 +18,19 @@ public class Lista {
     }
     
     
-    public void insertar(Object ob){
-        Nodo n =new Nodo(ob);
+    public void insertar(E p){
+        Nodo<E> n =new Nodo(p);
         n.setSig(inicio);
         inicio=n;
         actual=inicio;
+    }
+    
+    public void mostrarLista(){
+        Nodo<E> aux = this.inicio;
+        while(aux != null){
+            System.out.println(aux.getDato().toString());
+            aux=aux.getSiguiente();
+        }
     }
     
    public void avanzar(){

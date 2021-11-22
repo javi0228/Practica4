@@ -19,6 +19,7 @@ public class Empleado implements Serializable{
     private float sueldo;
     private float sueldoMax;
     private Fecha fechaAlta;
+   
     
     public Empleado(int id,String nombre, float salario,float salarioMax,int anio, int mes, int dia){
         this.nombre=nombre;
@@ -34,14 +35,22 @@ public class Empleado implements Serializable{
         this.fechaAlta=null;
     }
     
+    public Empleado(){
+        
+    }
+    
     public Empleado(int id, float salario){
         this.id=id;
         this.sueldo=salario;
         this.fechaAlta=null;
     }
     
-    public boolean comprobarSueldo(float sueldo){
-        return (sueldo <= sueldoMax && sueldo>1000);
+    public static boolean comprobarSueldo(float sueldo,float sueldoMax){
+        return (sueldo <= sueldoMax || sueldo>1000);
+    }
+    
+    public static boolean comprobarId(int id){
+        return (id<=100 && id>0);
     }
 
     /**
@@ -113,5 +122,13 @@ public class Empleado implements Serializable{
     public void setFechaAlta(Fecha fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
+
+    @Override
+    public String toString() {
+        return "Id: "+getId()+"\n Nombre: "+getNombre()+"\n Sueldo: "+getSueldo()+
+                "\n Sueldo Máximo: "+getSueldoMax()+"\n Fecha de alta: "+getFechaAlta();
+    }
+    
+    
     
 }

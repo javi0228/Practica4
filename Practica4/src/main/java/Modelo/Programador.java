@@ -4,12 +4,16 @@
  * and open the template in the editor.
  */
 package Modelo;
-
+import Controlador.*;
+import static Controlador.IFecha.AÑO;
+import static Controlador.IFecha.DIA_DEL_MES;
+import static Controlador.IFecha.MES_DEL_AÑO;
+import java.util.GregorianCalendar;
 /**
  *
  * @author Rubén Martín
  */
-public class Programador extends Empleado{
+public class Programador extends Empleado implements IFecha{
     
     private float SueldoExtra;
     private int horasExtra;
@@ -24,6 +28,10 @@ public class Programador extends Empleado{
         super(id, salario);
         this.SueldoExtra=0;
         this.horasExtra=0;
+    }
+
+    public Programador() {
+        
     }
 
     /**
@@ -53,5 +61,39 @@ public class Programador extends Empleado{
     public void setHorasExtra(int horasExtra) {
         this.horasExtra = horasExtra;
     }
+    
+    public static boolean comprobarHorasExtras(int horas){
+        return horas>0;
+    }
+    
+    public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float sueldoExtra){
+        return sueldoExtra>0&&(sueldoExtra+sueldo)<=sueldoMax;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\n Horas extras: "+getHorasExtra()+"\n Sueldo extra: "+getSueldoExtra(); 
+    }
+    
+    
+    
+    @Override
+    public int dia()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(DIA_DEL_MES);
+  }
+    @Override
+  public int mes()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(MES_DEL_AÑO)+1;
+  }
+    @Override
+  public int año()
+  {
+    GregorianCalendar fechaActual = new GregorianCalendar();
+    return fechaActual.get(AÑO);
+  }
     
 }
