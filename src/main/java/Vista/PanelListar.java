@@ -297,10 +297,6 @@ public class PanelListar extends javax.swing.JPanel {
                 fieldSueldo.setText(""+((Programador) ob).getSueldo());
                 sueldoExtraField.setText(""+((Programador) ob).getSueldoExtra());
             }
-            
-            
-            
-            
         } else {
             if (ob instanceof Analista) {
                 
