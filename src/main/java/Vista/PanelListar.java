@@ -7,7 +7,7 @@ import Modelo.*;
 public class PanelListar extends javax.swing.JPanel {
 
     Lista listado;
-    int e;
+    
 
     public PanelListar() {
 
