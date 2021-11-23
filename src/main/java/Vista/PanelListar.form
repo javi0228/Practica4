@@ -24,36 +24,49 @@
               <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelFecha" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="plusLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelDni" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="sueldoMaxLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelSueldo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNombre" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="idLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="horasExtrasLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="sueldoExtraLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelFecha" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="plusLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDni" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sueldoMaxLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSueldo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNombre" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="horasExtrasLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sueldoExtraLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="fieldDni" max="32767" attributes="0"/>
+                          <Component id="plusField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="fieldFecha" alignment="0" pref="87" max="32767" attributes="0"/>
+                          <Component id="fieldNombre" alignment="1" max="32767" attributes="0"/>
+                          <Component id="fieldSueldo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="horasExtrasField" pref="87" max="32767" attributes="0"/>
+                          <Component id="sueldoMaxField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="idField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="sueldoExtraField" pref="87" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="botonCalcular" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="310" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="fieldDni" max="32767" attributes="0"/>
-                  <Component id="plusField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="fieldFecha" alignment="0" pref="87" max="32767" attributes="0"/>
-                  <Component id="fieldNombre" alignment="1" max="32767" attributes="0"/>
-                  <Component id="fieldSueldo" alignment="1" max="32767" attributes="0"/>
-                  <Component id="horasExtrasField" pref="87" max="32767" attributes="0"/>
-                  <Component id="sueldoMaxField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="idField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="sueldoExtraField" pref="87" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+              <Component id="errorLabel" min="-2" pref="387" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,7 +118,11 @@
                   <Component id="sueldoExtraField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sueldoExtraLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="errorLabel" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="botonCalcular" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btRetroceder" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -197,6 +214,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sueldo extra:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonCalcular">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calcular"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCalcularActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="errorLabel">
     </Component>
   </SubComponents>
 </Form>

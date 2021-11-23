@@ -63,6 +63,8 @@ public class PanelListar extends javax.swing.JPanel {
         idLabel = new javax.swing.JLabel();
         sueldoExtraField = new javax.swing.JTextField();
         sueldoExtraLabel = new javax.swing.JLabel();
+        botonCalcular = new javax.swing.JButton();
+        errorLabel = new javax.swing.JLabel();
 
         fieldSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,13 @@ public class PanelListar extends javax.swing.JPanel {
 
         sueldoExtraLabel.setText("Sueldo extra:");
 
+        botonCalcular.setText("Calcular");
+        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,32 +122,41 @@ public class PanelListar extends javax.swing.JPanel {
                 .addComponent(btSiguiente)
                 .addGap(157, 157, 157))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelFecha)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(plusLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelDni, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(sueldoMaxLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelSueldo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(horasExtrasLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(sueldoExtraLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(325, 325, 325)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(fieldDni)
-                    .addComponent(plusField)
-                    .addComponent(fieldFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(fieldNombre)
-                    .addComponent(fieldSueldo)
-                    .addComponent(horasExtrasField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(sueldoMaxField)
-                    .addComponent(idField)
-                    .addComponent(sueldoExtraField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
-                .addGap(90, 90, 90))
+                            .addComponent(labelFecha)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(plusLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelDni, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sueldoMaxLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelSueldo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(idLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(horasExtrasLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sueldoExtraLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(325, 325, 325)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(fieldDni)
+                            .addComponent(plusField)
+                            .addComponent(fieldFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                            .addComponent(fieldNombre)
+                            .addComponent(fieldSueldo)
+                            .addComponent(horasExtrasField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                            .addComponent(sueldoMaxField)
+                            .addComponent(idField)
+                            .addComponent(sueldoExtraField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(botonCalcular)
+                        .addGap(310, 310, 310))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +197,11 @@ public class PanelListar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sueldoExtraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoExtraLabel))
-                .addGap(191, 191, 191)
+                .addGap(47, 47, 47)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(botonCalcular)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRetroceder)
                     .addComponent(btSiguiente))
@@ -232,10 +254,22 @@ public class PanelListar extends javax.swing.JPanel {
             
             setCamposProgramador(ob);
             
+            if(Float.parseFloat(sueldoExtraField.getText())==0){
+                botonCalcular.setEnabled(false);
+            } else {
+                botonCalcular.setEnabled(true);
+            }
+            
         } else {
             if (ob instanceof Analista) {
                 
                 setCamposAnalista(ob);
+                
+                if(Float.parseFloat(plusField.getText())==0){
+                botonCalcular.setEnabled(false);
+                } else {
+                    botonCalcular.setEnabled(true);
+                }
             }
         }
 
@@ -247,6 +281,41 @@ public class PanelListar extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btRetrocederActionPerformed
+
+    private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
+        
+        Object ob = listado.getActual().getDato();
+        float total=0;
+        
+        if (ob instanceof Programador) {
+            total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(sueldoExtraField.getText());
+            if(total>Float.parseFloat(sueldoMaxField.getText())){
+                errorLabel.setText("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Programador)ob).getSueldoMax());
+            } else {
+                ((Programador)ob).setSueldo(total);
+                ((Programador)ob).setSueldoExtra(0);
+                fieldSueldo.setText(""+((Programador) ob).getSueldo());
+                sueldoExtraField.setText(""+((Programador) ob).getSueldoExtra());
+            }
+            
+            
+            
+            
+        } else {
+            if (ob instanceof Analista) {
+                
+                total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(plusField.getText());
+                if(total>Float.parseFloat(sueldoMaxField.getText())){
+                    errorLabel.setText("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Programador)ob).getSueldoMax());
+                } else {
+                    ((Analista)ob).setSueldo(total);
+                    ((Analista)ob).setPlus(0);
+                    fieldSueldo.setText(""+((Analista) ob).getSueldo());
+                    sueldoExtraField.setText(""+((Analista) ob).getPlus());
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCalcularActionPerformed
 
     void setCamposAnalista(Object ob){
         
@@ -320,8 +389,10 @@ public class PanelListar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCalcular;
     private javax.swing.JButton btRetroceder;
     private javax.swing.JButton btSiguiente;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JTextField fieldDni;
     private javax.swing.JTextField fieldFecha;
     private javax.swing.JTextField fieldNombre;
