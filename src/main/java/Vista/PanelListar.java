@@ -286,7 +286,7 @@ public class PanelListar extends javax.swing.JPanel {
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
         
         Object ob = listado.getActual().getDato();
-        float total=0;
+        float total;
         
         if (ob instanceof Programador) {
             total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(sueldoExtraField.getText());
