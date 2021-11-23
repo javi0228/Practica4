@@ -254,11 +254,11 @@ public class PanelListar extends javax.swing.JPanel {
             
             setCamposProgramador(ob);
             
-            if(Float.parseFloat(sueldoExtraField.getText())==0){
+            /*if(Float.parseFloat(sueldoExtraField.getText())==0){
                 botonCalcular.setEnabled(false);
             } else {
                 botonCalcular.setEnabled(true);
-            }
+            }*/
             
         } else {
             if (ob instanceof Analista) {
