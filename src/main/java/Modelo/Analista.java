@@ -5,6 +5,7 @@
  */
 package Modelo;
 import Controlador.*;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
@@ -12,7 +13,7 @@ import java.util.GregorianCalendar;
  * @author Rubén Martín
  */
 
-public class Analista extends Empleado implements IFecha{
+public class Analista extends Empleado implements IFecha,Serializable{
     
     private float plus;
     private String dni;

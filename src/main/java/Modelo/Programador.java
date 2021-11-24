@@ -8,12 +8,13 @@ import Controlador.*;
 import static Controlador.IFecha.AÑO;
 import static Controlador.IFecha.DIA_DEL_MES;
 import static Controlador.IFecha.MES_DEL_AÑO;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 /**
  *
  * @author Rubén Martín
  */
-public class Programador extends Empleado implements IFecha{
+public class Programador extends Empleado implements IFecha,Serializable{
     
     private float SueldoExtra;
     private int horasExtra;
