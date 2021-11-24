@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -12,11 +13,11 @@ import java.util.GregorianCalendar;
  *
  * @author Javir
  */
-public class Fecha {
+public class Fecha implements Serializable{
     
     private Calendar cal;
 
-    public Fecha(int dia,int mes,int anio) {
+    public Fecha(int anio,int mes,int dia) {
         cal=new GregorianCalendar();
         cal.set(anio, mes, dia);
         

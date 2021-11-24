@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Lista;
 import Controlador.Nodo;
+import Modelo.Empleado;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
@@ -17,7 +18,7 @@ import javax.swing.DefaultListModel;
 public class PanelListarTodos extends javax.swing.JPanel {
 
     Lista listado;
-    ArrayList empleados=new ArrayList();
+    ArrayList<Empleado> empleados=new ArrayList<>();
     DefaultListModel lista= new DefaultListModel();
     
     /**
@@ -36,7 +37,7 @@ public class PanelListarTodos extends javax.swing.JPanel {
         Nodo aux=listado.getInicio();
         
            while(aux!=null){
-               empleados.add(aux.getDato());
+               empleados.add((Empleado)aux.getDato());
                aux=aux.getSiguiente();
            }
     }

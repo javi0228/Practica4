@@ -3,11 +3,23 @@ package Vista;
 
 import Controlador.*;
 import Modelo.Empleado;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import javax.swing.JFileChooser;
+
+import javax.swing.JOptionPane;
 
 
 public class Principal extends javax.swing.JFrame {
     
+    File fichero;
     private static Lista listado=new <Empleado>Lista();
+   
     
     public Principal() {
         
@@ -38,6 +50,9 @@ public class Principal extends javax.swing.JFrame {
         labelPractica = new javax.swing.JLabel();
         labelNoDatos = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
+        GuardarCargar = new javax.swing.JMenu();
+        GuardarMenuItem = new javax.swing.JMenuItem();
+        CargarMenuItem = new javax.swing.JMenuItem();
         Altas = new javax.swing.JMenu();
         AltaProg = new javax.swing.JMenuItem();
         AltaAnalista = new javax.swing.JMenuItem();
@@ -58,6 +73,26 @@ public class Principal extends javax.swing.JFrame {
         labelNoDatos.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         labelNoDatos.setForeground(new java.awt.Color(255, 51, 51));
         labelNoDatos.setText("NO HAY DATOS EN LA LISTA");
+
+        GuardarCargar.setText("Guardar/Cargar");
+
+        GuardarMenuItem.setText("Guardar");
+        GuardarMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarMenuItemActionPerformed(evt);
+            }
+        });
+        GuardarCargar.add(GuardarMenuItem);
+
+        CargarMenuItem.setText("Cargar");
+        CargarMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargarMenuItemActionPerformed(evt);
+            }
+        });
+        GuardarCargar.add(CargarMenuItem);
+
+        BarraMenu.add(GuardarCargar);
 
         Altas.setLabel("Altas");
 
@@ -104,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
 
         BarraMenu.add(Listar);
 
-        Ordenar.setText("Odenar");
+        Ordenar.setText("Ordenar");
 
         OrdenarMenuItem.setText("Ordenar por Id");
         OrdenarMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +268,114 @@ public class Principal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_OrdenarMenuItemActionPerformed
-     
+
+    private void CargarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarMenuItemActionPerformed
+        
+        
+        JFileChooser seleccionar_archivo;
+        seleccionar_archivo=new JFileChooser();
+        seleccionar_archivo.showOpenDialog(null);
+        fichero=seleccionar_archivo.getSelectedFile();
+        FileInputStream fichero_entrada;
+        
+        try {
+            
+            fichero_entrada = new FileInputStream(fichero);
+            try (ObjectInputStream entrada = new ObjectInputStream(fichero_entrada)) {
+                leerFichero(entrada,fichero_entrada);
+            }
+            fichero_entrada.close();
+        } catch (FileNotFoundException ex) {
+            
+            setMensajeError("No se encuentra el archivo.");
+            
+        } catch (IOException ex) {
+            System.out.println(""+ex);
+            setMensajeError("No se puede leer el archivo.");
+            
+        } catch (ClassNotFoundException ex) {
+            setMensajeError("El objeto leido no es compatible");
+        }
+        
+        setMensajeExito("Datos cargados correctamente.");
+        
+    }//GEN-LAST:event_CargarMenuItemActionPerformed
+
+    private void leerFichero(ObjectInputStream entrada,FileInputStream fi) throws IOException, ClassNotFoundException{
+        
+        Empleado aux=(Empleado)entrada.readObject();
+        System.out.println(aux);
+        listado.insertar(aux);
+        
+        while(fi.available()>0){
+            
+            aux=(Empleado)entrada.readObject();
+            listado.insertar(aux);
+            System.out.println(aux);
+            
+        }
+        
+        
+    }
+    
+    private void GuardarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarMenuItemActionPerformed
+       
+        FileOutputStream fichero_salida;
+        
+        JFileChooser seleccionar_archivo;
+        seleccionar_archivo=new JFileChooser();
+        seleccionar_archivo.showOpenDialog(null);
+        fichero=seleccionar_archivo.getSelectedFile();
+        
+        try {
+            
+            fichero_salida = new FileOutputStream(fichero,false);
+            try (ObjectOutputStream salida = new ObjectOutputStream(fichero_salida)) {
+                escribirFichero(salida);
+            }
+            fichero_salida.close();
+            
+        } catch (FileNotFoundException ex) {
+            
+            setMensajeError("No se encuentra el archivo.");
+            
+        } catch (IOException ex) {
+            System.out.println(""+ex);
+            setMensajeError("No se puede escribir en el archivo.");
+            
+        }
+        
+        setMensajeExito("Datos almacenados correctamente.");
+        
+    }//GEN-LAST:event_GuardarMenuItemActionPerformed
+    
+    private void escribirFichero(ObjectOutputStream salida) throws IOException {
+        
+        Object ob;
+      
+        Nodo aux=listado.getInicio();
+        
+        while(aux!=null){
+            
+            ob=aux.getDato();
+            
+            salida.writeObject(ob);
+            
+            aux=aux.getSiguiente();
+        }
+        
+    }
+        
+    private void setMensajeExito(String mensaje) {
+        
+      JOptionPane.showMessageDialog(this, mensaje,"Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+    private void setMensajeError(String mensaje){
+        JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.ERROR_MESSAGE);
+    }
+    
      private void verLista() {
         Nodo aux=listado.getInicio();
            
@@ -295,6 +437,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Altas;
     private javax.swing.JMenu Ayuda;
     private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenuItem CargarMenuItem;
+    private javax.swing.JMenu GuardarCargar;
+    private javax.swing.JMenuItem GuardarMenuItem;
     private javax.swing.JMenu Listar;
     private javax.swing.JMenuItem Listar1;
     private javax.swing.JMenuItem ListarTodos;
@@ -303,6 +448,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel labelNoDatos;
     private javax.swing.JLabel labelPractica;
     // End of variables declaration//GEN-END:variables
+
+
+    
 
    
 }

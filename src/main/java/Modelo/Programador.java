@@ -8,12 +8,13 @@ import Controlador.*;
 import static Controlador.IFecha.AÑO;
 import static Controlador.IFecha.DIA_DEL_MES;
 import static Controlador.IFecha.MES_DEL_AÑO;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 /**
  *
  * @author Rubén Martín
  */
-public class Programador extends Empleado implements IFecha{
+public class Programador extends Empleado implements IFecha,Serializable{
     
     private float SueldoExtra;
     private int horasExtra;
@@ -63,7 +64,7 @@ public class Programador extends Empleado implements IFecha{
     }
     
     public static boolean comprobarHorasExtras(int horas){
-        return horas>0;
+        return horas>=0;
     }
     
     public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float sueldoExtra){
@@ -100,13 +101,15 @@ public class Programador extends Empleado implements IFecha{
   
   public boolean comprobarMes(){
         
-        return super.getFechaAlta().getMes()==mes();
+        return super.getFechaAlta().getDia()==dia();
     }
   
   public boolean comprobarAnio(){
         
-        return super.getFechaAlta().getAnio()==año();
+        return super.getFechaAlta().getMes()==mes();
     }
+  
+  
   
   
     

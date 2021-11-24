@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.*;
 import Modelo.*;
+import javax.swing.JOptionPane;
 
 
 public class PanelListar extends javax.swing.JPanel {
@@ -64,8 +65,7 @@ public class PanelListar extends javax.swing.JPanel {
         idLabel = new javax.swing.JLabel();
         sueldoExtraField = new javax.swing.JTextField();
         sueldoExtraLabel = new javax.swing.JLabel();
-        botonCalcular = new javax.swing.JButton();
-        errorLabel = new javax.swing.JLabel();
+        btCalcular = new javax.swing.JButton();
 
         fieldSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,10 +105,10 @@ public class PanelListar extends javax.swing.JPanel {
 
         sueldoExtraLabel.setText("Sueldo extra:");
 
-        botonCalcular.setText("Calcular");
-        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+        btCalcular.setText("Calcular");
+        btCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCalcularActionPerformed(evt);
+                btCalcularActionPerformed(evt);
             }
         });
 
@@ -152,12 +152,8 @@ public class PanelListar extends javax.swing.JPanel {
                             .addComponent(sueldoExtraField, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
                         .addGap(90, 90, 90))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botonCalcular)
+                        .addComponent(btCalcular)
                         .addGap(310, 310, 310))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,10 +194,8 @@ public class PanelListar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sueldoExtraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoExtraLabel))
-                .addGap(47, 47, 47)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(botonCalcular)
+                .addGap(113, 113, 113)
+                .addComponent(btCalcular)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRetroceder)
@@ -244,6 +238,10 @@ public class PanelListar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldSueldoActionPerformed
 
+    private void setMensajeError(String mensaje){
+        JOptionPane.showMessageDialog(this,mensaje,"Error en la introducción de datos",JOptionPane.ERROR_MESSAGE);
+    }
+    
     private void btRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetrocederActionPerformed
         // TODO add your handling code here:
         listado.retroceder();
@@ -255,22 +253,22 @@ public class PanelListar extends javax.swing.JPanel {
             
             setCamposProgramador(ob);
             
-            if(Float.parseFloat(sueldoExtraField.getText())==0){
+            /*if(Float.parseFloat(sueldoExtraField.getText())==0){
                 botonCalcular.setEnabled(false);
             } else {
                 botonCalcular.setEnabled(true);
-            }
+            }*/
             
         } else {
             if (ob instanceof Analista) {
                 
                 setCamposAnalista(ob);
                 
-                if(Float.parseFloat(plusField.getText())==0){
+                /*if(Float.parseFloat(plusField.getText())==0){
                 botonCalcular.setEnabled(false);
                 } else {
                     botonCalcular.setEnabled(true);
-                }
+                }*/
             }
         }
 
@@ -283,40 +281,47 @@ public class PanelListar extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btRetrocederActionPerformed
 
-    private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
+    private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
         
         Object ob = listado.getActual().getDato();
         float total;
+        float plus=0;
+        String[] porcentaje=plusField.getText().split("%");
         
         if (ob instanceof Programador) {
             total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(sueldoExtraField.getText());
             if(total>Float.parseFloat(sueldoMaxField.getText())){
-                errorLabel.setText("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Programador)ob).getSueldoMax());
+                setMensajeError("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Programador)ob).getSueldoMax());
+                btCalcular.setEnabled(false);
             } else {
                 ((Programador)ob).setSueldo(total);
-                ((Programador)ob).setSueldoExtra(0);
+               
                 fieldSueldo.setText(""+((Programador) ob).getSueldo());
                 sueldoExtraField.setText(""+((Programador) ob).getSueldoExtra());
             }
         } else {
             if (ob instanceof Analista) {
-                
-                total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(plusField.getText());
+                plus=Float.parseFloat(fieldSueldo.getText())*((Float.parseFloat(porcentaje[0]))/100);
+                total=Float.parseFloat(fieldSueldo.getText()) + plus;
                 if(total>Float.parseFloat(sueldoMaxField.getText())){
-                    errorLabel.setText("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Programador)ob).getSueldoMax());
+                    setMensajeError("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Analista)ob).getSueldoMax());
+                    btCalcular.setEnabled(false);
                 } else {
                     ((Analista)ob).setSueldo(total);
-                    ((Analista)ob).setPlus(0);
+                
                     fieldSueldo.setText(""+((Analista) ob).getSueldo());
                     sueldoExtraField.setText(""+((Analista) ob).getPlus());
                 }
             }
         }
-    }//GEN-LAST:event_botonCalcularActionPerformed
+    }//GEN-LAST:event_btCalcularActionPerformed
 
     void setCamposAnalista(Object ob){
         
         //inicializo los campos de analista
+       
+        
+        
         idField.setText(""+((Empleado)ob).getId());
         sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
         fieldFecha.setText(""+((Empleado)ob).getFechaAlta());
@@ -324,6 +329,16 @@ public class PanelListar extends javax.swing.JPanel {
         fieldSueldo.setText("" + ((Analista) ob).getSueldo());
         fieldDni.setText(((Analista)ob).getDNI());
         plusField.setText(""+((Analista)ob).getPlus()+"%");
+        
+        float plus=0;
+        String[] porcentaje=plusField.getText().split("%");
+        plus=Float.parseFloat(fieldSueldo.getText())*((Float.parseFloat(porcentaje[0]))/100);
+        
+        if(((Analista)ob).comprobarAnio() && (Analista.comprobarSueldoExtra(Float.parseFloat(fieldSueldo.getText()), Float.parseFloat(sueldoMaxField.getText()), plus))){
+            btCalcular.setEnabled(true);
+        } else {
+            btCalcular.setEnabled(false);
+        }
         
         //oculto campos programador
         horasExtrasField.setVisible(false);
@@ -342,6 +357,8 @@ public class PanelListar extends javax.swing.JPanel {
    
     void setCamposProgramador (Object ob){
         
+        
+        
         //inicializo los campos de programador
         idField.setText(""+((Empleado)ob).getId());
         sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
@@ -350,6 +367,13 @@ public class PanelListar extends javax.swing.JPanel {
         fieldSueldo.setText(""+((Programador) ob).getSueldo());
         horasExtrasField.setText(""+((Programador)ob).getHorasExtra());
         sueldoExtraField.setText(""+((Programador)ob).getSueldoExtra());
+        
+        if(((Programador)ob).comprobarMes() && (Programador.comprobarSueldoExtra(Float.parseFloat(fieldSueldo.getText()), Float.parseFloat(sueldoMaxField.getText()), Float.parseFloat(sueldoExtraField.getText())))){
+            btCalcular.setEnabled(true);
+        } else {
+            btCalcular.setEnabled(false);
+        }
+        
         
         //oculto campos analista
         fieldDni.setVisible(false);
@@ -386,10 +410,9 @@ public class PanelListar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCalcular;
+    private javax.swing.JButton btCalcular;
     private javax.swing.JButton btRetroceder;
     private javax.swing.JButton btSiguiente;
-    private javax.swing.JLabel errorLabel;
     private javax.swing.JTextField fieldDni;
     private javax.swing.JTextField fieldFecha;
     private javax.swing.JTextField fieldNombre;
