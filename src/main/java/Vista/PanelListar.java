@@ -285,6 +285,8 @@ public class PanelListar extends javax.swing.JPanel {
         
         Object ob = listado.getActual().getDato();
         float total;
+        float plus=0;
+        String[] porcentaje=plusField.getText().split("%");
         
         if (ob instanceof Programador) {
             total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(sueldoExtraField.getText());
@@ -299,8 +301,8 @@ public class PanelListar extends javax.swing.JPanel {
             }
         } else {
             if (ob instanceof Analista) {
-                
-                total=Float.parseFloat(fieldSueldo.getText())+ Float.parseFloat(plusField.getText());
+                plus=Float.parseFloat(fieldSueldo.getText())*((Float.parseFloat(porcentaje[0]))/100);
+                total=Float.parseFloat(fieldSueldo.getText()) + plus;
                 if(total>Float.parseFloat(sueldoMaxField.getText())){
                     setMensajeError("Error, el sueldo no puede superar el sueldo máximo establecido: "+((Analista)ob).getSueldoMax());
                     btCalcular.setEnabled(false);
@@ -317,6 +319,9 @@ public class PanelListar extends javax.swing.JPanel {
     void setCamposAnalista(Object ob){
         
         //inicializo los campos de analista
+       
+        
+        
         idField.setText(""+((Empleado)ob).getId());
         sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
         fieldFecha.setText(""+((Empleado)ob).getFechaAlta());
@@ -324,6 +329,16 @@ public class PanelListar extends javax.swing.JPanel {
         fieldSueldo.setText("" + ((Analista) ob).getSueldo());
         fieldDni.setText(((Analista)ob).getDNI());
         plusField.setText(""+((Analista)ob).getPlus()+"%");
+        
+        float plus=0;
+        String[] porcentaje=plusField.getText().split("%");
+        plus=Float.parseFloat(fieldSueldo.getText())*((Float.parseFloat(porcentaje[0]))/100);
+        
+        if(((Analista)ob).comprobarAnio() && (Analista.comprobarSueldoExtra(Float.parseFloat(fieldSueldo.getText()), Float.parseFloat(sueldoMaxField.getText()), plus))){
+            btCalcular.setEnabled(true);
+        } else {
+            btCalcular.setEnabled(false);
+        }
         
         //oculto campos programador
         horasExtrasField.setVisible(false);
@@ -342,6 +357,8 @@ public class PanelListar extends javax.swing.JPanel {
    
     void setCamposProgramador (Object ob){
         
+        
+        
         //inicializo los campos de programador
         idField.setText(""+((Empleado)ob).getId());
         sueldoMaxField.setText(""+((Empleado)ob).getSueldoMax());
@@ -350,6 +367,13 @@ public class PanelListar extends javax.swing.JPanel {
         fieldSueldo.setText(""+((Programador) ob).getSueldo());
         horasExtrasField.setText(""+((Programador)ob).getHorasExtra());
         sueldoExtraField.setText(""+((Programador)ob).getSueldoExtra());
+        
+        if(((Programador)ob).comprobarMes() && (Programador.comprobarSueldoExtra(Float.parseFloat(fieldSueldo.getText()), Float.parseFloat(sueldoMaxField.getText()), Float.parseFloat(sueldoExtraField.getText())))){
+            btCalcular.setEnabled(true);
+        } else {
+            btCalcular.setEnabled(false);
+        }
+        
         
         //oculto campos analista
         fieldDni.setVisible(false);
