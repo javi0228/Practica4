@@ -188,6 +188,7 @@ public class PanelAltasProg extends javax.swing.JPanel {
                     ,Integer.parseInt( fecha[2]),Integer.parseInt( fecha[1]),Integer.parseInt( fecha[0]),
                     Float.parseFloat(sueldoExtraField.getText()),Integer.parseInt(horasExtrasField.getText()));
             
+            
             listado.insertar(ob);
             
         }else if(!Programador.comprobarHorasExtras(Integer.parseInt(horasExtrasField.getText()))){
