@@ -78,7 +78,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="Ordenar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Odenar"/>
+            <Property name="text" type="java.lang.String" value="Ordenar"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="OrdenarMenuItem">
