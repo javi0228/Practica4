@@ -3,18 +3,21 @@ package Vista;
 
 import Controlador.*;
 import Modelo.Empleado;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
 
 
 public class Principal extends javax.swing.JFrame {
     
+    File fichero;
     private static Lista listado=new <Empleado>Lista();
    
     
@@ -268,11 +271,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void CargarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarMenuItemActionPerformed
         
+        
+        JFileChooser seleccionar_archivo;
+        seleccionar_archivo=new JFileChooser();
+        seleccionar_archivo.showOpenDialog(null);
+        fichero=seleccionar_archivo.getSelectedFile();
         FileInputStream fichero_entrada;
         
         try {
             
-            fichero_entrada = new FileInputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat");
+            fichero_entrada = new FileInputStream(fichero);
             try (ObjectInputStream entrada = new ObjectInputStream(fichero_entrada)) {
                 leerFichero(entrada,fichero_entrada);
             }
@@ -314,9 +322,14 @@ public class Principal extends javax.swing.JFrame {
        
         FileOutputStream fichero_salida;
         
+        JFileChooser seleccionar_archivo;
+        seleccionar_archivo=new JFileChooser();
+        seleccionar_archivo.showOpenDialog(null);
+        fichero=seleccionar_archivo.getSelectedFile();
+        
         try {
             
-            fichero_salida = new FileOutputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat",false);
+            fichero_salida = new FileOutputStream(fichero,false);
             try (ObjectOutputStream salida = new ObjectOutputStream(fichero_salida)) {
                 escribirFichero(salida);
             }
