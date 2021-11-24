@@ -68,7 +68,7 @@ public class Programador extends Empleado implements IFecha{
     
     public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float sueldoExtra){
         return sueldoExtra>0&&(sueldoExtra+sueldo)<=sueldoMax;
-    }
+    } 
 
     @Override
     public String toString() {
