@@ -316,7 +316,7 @@ public class Principal extends javax.swing.JFrame {
         
         try {
             
-            fichero_salida = new FileOutputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat",false);
+            fichero_salida = new FileOutputStream("C:\\Users\\Rubén Martín\\Desktop\\2ºDAM\\Dispositivos moviles\\Empleados.dat",false);
             try (ObjectOutputStream salida = new ObjectOutputStream(fichero_salida)) {
                 escribirFichero(salida);
             }
