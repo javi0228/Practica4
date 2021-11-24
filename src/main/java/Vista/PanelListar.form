@@ -58,15 +58,10 @@
                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="botonCalcular" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCalcular" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="310" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
-              <Component id="errorLabel" min="-2" pref="387" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,10 +113,8 @@
                   <Component id="sueldoExtraField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sueldoExtraLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Component id="errorLabel" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="botonCalcular" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+              <Component id="btCalcular" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btRetroceder" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -215,15 +208,13 @@
         <Property name="text" type="java.lang.String" value="Sueldo extra:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botonCalcular">
+    <Component class="javax.swing.JButton" name="btCalcular">
       <Properties>
         <Property name="text" type="java.lang.String" value="Calcular"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCalcularActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCalcularActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="errorLabel">
     </Component>
   </SubComponents>
 </Form>
