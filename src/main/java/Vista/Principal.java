@@ -9,9 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 
@@ -138,7 +136,7 @@ public class Principal extends javax.swing.JFrame {
 
         BarraMenu.add(Listar);
 
-        Ordenar.setText("Odenar");
+        Ordenar.setText("Ordenar");
 
         OrdenarMenuItem.setText("Ordenar por Id");
         OrdenarMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -275,11 +273,9 @@ public class Principal extends javax.swing.JFrame {
         try {
             
             fichero_entrada = new FileInputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat");
-            ObjectInputStream entrada = new ObjectInputStream(fichero_entrada);
-            
-            leerFichero(entrada,fichero_entrada);
-            
-            entrada.close();
+            try (ObjectInputStream entrada = new ObjectInputStream(fichero_entrada)) {
+                leerFichero(entrada,fichero_entrada);
+            }
             fichero_entrada.close();
         } catch (FileNotFoundException ex) {
             
@@ -290,7 +286,7 @@ public class Principal extends javax.swing.JFrame {
             setMensajeError("No se puede leer el archivo.");
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            setMensajeError("El objeto leido no es compatible");
         }
         
         setMensajeExito("Datos cargados correctamente.");
@@ -303,10 +299,10 @@ public class Principal extends javax.swing.JFrame {
         System.out.println(aux);
         listado.insertar(aux);
         
-        while(fi.available()>=0){
+        while(fi.available()>0){
             
             aux=(Empleado)entrada.readObject();
-             listado.insertar(aux);
+            listado.insertar(aux);
             System.out.println(aux);
             
         }
@@ -320,12 +316,10 @@ public class Principal extends javax.swing.JFrame {
         
         try {
             
-            fichero_salida = new FileOutputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat", true);
-            ObjectOutputStream salida = new ObjectOutputStream(fichero_salida);
-            
-            escribirFichero(salida);
-            
-            salida.close();
+            fichero_salida = new FileOutputStream("C:\\Users\\Javir\\OneDrive\\Escritorio\\DAM\\2ºDAM\\PMDM\\Empleados.dat",false);
+            try (ObjectOutputStream salida = new ObjectOutputStream(fichero_salida)) {
+                escribirFichero(salida);
+            }
             fichero_salida.close();
             
         } catch (FileNotFoundException ex) {
