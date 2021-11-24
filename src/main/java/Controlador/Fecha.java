@@ -16,7 +16,7 @@ public class Fecha {
     
     private Calendar cal;
 
-    public Fecha(int dia,int mes,int anio) {
+    public Fecha(int anio,int mes,int dia) {
         cal=new GregorianCalendar();
         cal.set(anio, mes, dia);
         

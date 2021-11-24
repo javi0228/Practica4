@@ -104,12 +104,16 @@ public class Analista extends Empleado implements IFecha{
   
   public boolean comprobarMes(){
         
-        return super.getFechaAlta().getMes()==mes();
+        return super.getFechaAlta().getDia()==dia();
+    }
+  
+  public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float plus){
+        return plus>0&&(plus+sueldo)<=sueldoMax;
     }
   
   
   public boolean comprobarAnio(){
         
-        return super.getFechaAlta().getAnio()==año();
+        return super.getFechaAlta().getMes()==mes();
     }
 }

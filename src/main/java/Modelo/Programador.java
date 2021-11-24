@@ -63,7 +63,7 @@ public class Programador extends Empleado implements IFecha{
     }
     
     public static boolean comprobarHorasExtras(int horas){
-        return horas>0;
+        return horas>=0;
     }
     
     public static boolean comprobarSueldoExtra(float sueldo, float sueldoMax, float sueldoExtra){
@@ -100,13 +100,15 @@ public class Programador extends Empleado implements IFecha{
   
   public boolean comprobarMes(){
         
-        return super.getFechaAlta().getMes()==mes();
+        return super.getFechaAlta().getDia()==dia();
     }
   
   public boolean comprobarAnio(){
         
-        return super.getFechaAlta().getAnio()==año();
+        return super.getFechaAlta().getMes()==mes();
     }
+  
+  
   
   
     
