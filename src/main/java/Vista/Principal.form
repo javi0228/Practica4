@@ -53,6 +53,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="Ordenar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Odenar"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="OrdenarMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordenar por Id"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OrdenarMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="Ayuda">
           <Properties>
             <Property name="label" type="java.lang.String" value="Ayuda"/>

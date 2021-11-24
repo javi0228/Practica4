@@ -44,6 +44,8 @@ public class Principal extends javax.swing.JFrame {
         Listar = new javax.swing.JMenu();
         Listar1 = new javax.swing.JMenuItem();
         ListarTodos = new javax.swing.JMenuItem();
+        Ordenar = new javax.swing.JMenu();
+        OrdenarMenuItem = new javax.swing.JMenuItem();
         Ayuda = new javax.swing.JMenu();
         AcercaDe = new javax.swing.JMenuItem();
 
@@ -101,6 +103,18 @@ public class Principal extends javax.swing.JFrame {
         Listar.add(ListarTodos);
 
         BarraMenu.add(Listar);
+
+        Ordenar.setText("Odenar");
+
+        OrdenarMenuItem.setText("Ordenar por Id");
+        OrdenarMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrdenarMenuItemActionPerformed(evt);
+            }
+        });
+        Ordenar.add(OrdenarMenuItem);
+
+        BarraMenu.add(Ordenar);
 
         Ayuda.setLabel("Ayuda");
 
@@ -203,6 +217,22 @@ public class Principal extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_ListarTodosActionPerformed
+
+    private void OrdenarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdenarMenuItemActionPerformed
+        
+        if (listado.getInicio()!=null) {
+            this.setContentPane(panelOrdenar);
+            panelOrdenar.listado = getLista();
+            panelOrdenar.rellenarArray();
+            panelOrdenar.vaciarLista();
+           
+            
+            pack();
+        }else{
+            labelNoDatos.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_OrdenarMenuItemActionPerformed
      
      private void verLista() {
         Nodo aux=listado.getInicio();
@@ -254,6 +284,7 @@ public class Principal extends javax.swing.JFrame {
     private final PanelAltasProg panelAltasProg= new PanelAltasProg(listado);
     private final PanelListar panelListar= new PanelListar();
     private final PanelListarTodos panelListarTodos=new PanelListarTodos();
+    private final PanelOrdenar panelOrdenar=new PanelOrdenar();
     
     
     
@@ -267,6 +298,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Listar;
     private javax.swing.JMenuItem Listar1;
     private javax.swing.JMenuItem ListarTodos;
+    private javax.swing.JMenu Ordenar;
+    private javax.swing.JMenuItem OrdenarMenuItem;
     private javax.swing.JLabel labelNoDatos;
     private javax.swing.JLabel labelPractica;
     // End of variables declaration//GEN-END:variables
