@@ -342,7 +342,7 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_GuardarMenuItemActionPerformed
     
-    private void escribirFichero(ObjectOutputStream salida) throws IOException {
+     private void escribirFichero(ObjectOutputStream salida) throws IOException {
         
         Object ob;
       
